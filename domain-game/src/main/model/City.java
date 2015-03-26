@@ -1,4 +1,5 @@
-package main;
+package main.model;
+
 
 public class City extends Domain {
 

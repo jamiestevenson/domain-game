@@ -1,8 +1,8 @@
-package test;
+package test.model;
 
 import static org.junit.Assert.*;
-import main.City;
-import main.TRADEABLE;
+import main.model.City;
+import main.model.TRADEABLE;
 
 import org.junit.Test;
 

@@ -1,8 +1,8 @@
-package test;
+package test.model;
 
 import static org.junit.Assert.*;
-import main.SEASON;
-import main.Simulation;
+import main.model.SEASON;
+import main.model.Simulation;
 
 import org.junit.Test;
 
