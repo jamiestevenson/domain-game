@@ -1,11 +1,13 @@
 package main.model;
 
+import java.awt.Point;
+
 
 public class City extends Domain {
 
-	public City () {
+	public City (Point p) {
 		
-		super();
+		super(p);
 		
 	}
 	

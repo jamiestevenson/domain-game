@@ -11,7 +11,8 @@ public class RunThis {
 		
         javax.swing.SwingUtilities.invokeLater(new Runnable() {
             public void run() {
-                View v = new View(m);
+                @SuppressWarnings("unused")
+				View v = new View(m);
             }
         });
 	

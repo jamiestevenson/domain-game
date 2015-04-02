@@ -6,8 +6,9 @@ import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
+
+
 import javax.swing.JPanel;
-import javax.swing.JToolBar;
 
 import main.model.Model;
 
@@ -20,6 +21,10 @@ import main.model.Model;
 public class View extends JFrame {
 
 	private static final long serialVersionUID = -4277571602364496156L;
+	private static final int SIZE = 900;
+	private static Dimension SCREEN_SIZE = new Dimension (SIZE, SIZE);
+	
+	private JPanel hexPanel;
 	
 	
 	public View (Model m) {
@@ -32,12 +37,15 @@ public class View extends JFrame {
 	
 	private void initialise (Model model) {
 		
-		this.setPreferredSize(new Dimension(300, 300));
+		this.setPreferredSize(SCREEN_SIZE);
 		this.setResizable(false);
 		this.pack();
 		this.setVisible(true);
 		
 		setUpToolBar(model);
+		hexPanel = new HexagonalPanel(SCREEN_SIZE, model);
+		this.add(hexPanel);
+		
 	}
 
 
