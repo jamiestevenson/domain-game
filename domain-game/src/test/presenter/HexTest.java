@@ -41,7 +41,7 @@ public class HexTest {
 	public void colour_test() {
 		Domain d = new Domain(new Point(0,0));
 		HexTile h = new HexTile(d);
-		assertEquals(Color.GREEN, h.colour());
+		assertEquals(Color.GREEN.darker(), h.colour());
 	}
 
 }
