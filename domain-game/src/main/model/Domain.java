@@ -4,13 +4,14 @@ import java.awt.Point;
 import java.util.EnumMap;
 import java.util.Map;
 
-import main.presenter.Hex;
+import main.presenter.Presentable;
+import main.presenter.HexTile;
 
-public class Domain {
+public class Domain implements Presentable {
 
 	private Point point;
 	private Map<TRADEABLE, Integer> goodsStore;
-	private Hex hex;
+	private HexTile hex;
 	
 	public Domain (Point p) {
 		
@@ -23,7 +24,7 @@ public class Domain {
 	
 	private void initialise (Point p) {
 		
-		hex = new Hex(this);
+		hex = new HexTile(this);
 		
 		for (TRADEABLE t : TRADEABLE.values()) {
 			goodsStore.put(t, 0);
@@ -44,13 +45,14 @@ public class Domain {
 	}
 	
 	
-	public Hex getHex () {
+	public HexTile getHex () {
 		
 		return hex;
 		
 	}
 
 
+	@Override
 	public Point getLocation() {
 
 		return point;

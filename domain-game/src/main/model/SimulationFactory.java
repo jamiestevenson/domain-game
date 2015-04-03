@@ -30,7 +30,9 @@ public class SimulationFactory {
 		
 		for (int i = 0; i < 5; i++) {
 			for (int j = 0; j < 5; j++) {
+				
 				d.add(new Domain(new Point (i,j)));
+				
 			}
 		}
 		

@@ -4,7 +4,7 @@ import java.util.Collection;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import main.presenter.Hex;
+import main.presenter.HexTile;
 
 public class Simulation {
 	
@@ -32,7 +32,7 @@ public class Simulation {
 	}
 
 
-	public Collection<Hex> hexes() {
+	public Collection<HexTile> hexes() {
 
 		return domains.stream().map(Domain::getHex).collect(Collectors.toSet());
 		

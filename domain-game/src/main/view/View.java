@@ -6,11 +6,11 @@ import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
-
-
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 
-import main.model.Model;
+import main.presenter.DrawablesRegister;
+import main.presenter.MenuBarController;
 
 	/**
 	 * @author Jamie
@@ -27,36 +27,36 @@ public class View extends JFrame {
 	private JPanel hexPanel;
 	
 	
-	public View (Model m) {
+	public View (DrawablesRegister dr, MenuBarController mbc) {
 		
 		super("Domains");
-		initialise(m);
+		initialise(dr, mbc);
 		
 	}
 	
 	
-	private void initialise (Model model) {
+	private void initialise (DrawablesRegister dr, MenuBarController controller) {
 		
 		this.setPreferredSize(SCREEN_SIZE);
 		this.setResizable(false);
 		this.pack();
 		this.setVisible(true);
-		
-		setUpToolBar(model);
-		hexPanel = new HexagonalPanel(SCREEN_SIZE, model);
-		this.add(hexPanel);
+		setUpToolBar(controller);
+		hexPanel = new HexagonalPanel(SCREEN_SIZE, dr);
+		this.add(new JScrollPane(hexPanel));
+		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		
 	}
 
 
-	private void setUpToolBar(Model m) {
+	private void setUpToolBar(MenuBarController m) {
 		
 		JMenuBar bar = new JMenuBar();
 		this.setJMenuBar(bar);
 		JMenu menu = new JMenu("Game");
 		bar.add(menu);
 		JMenuItem item = new JMenuItem("New");
-		item.addActionListener(m.getListener_NewGame());
+		item.addActionListener(m.newGame_ActionListener());
 		menu.add(item);	
 		
 	}

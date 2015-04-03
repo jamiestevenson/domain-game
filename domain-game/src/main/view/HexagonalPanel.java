@@ -8,21 +8,22 @@ import java.util.Collection;
 
 import javax.swing.JPanel;
 
-import main.model.Model;
-import main.presenter.Hex;
+import main.presenter.Drawable;
+import main.presenter.DrawablesRegister;
+
 
 public class HexagonalPanel extends JPanel {
 
 	private static final long serialVersionUID = 2875093917722096774L;
 	private static int SCALE = 50;
 	
-	private Collection<Hex> hexes;
+	private Collection<Drawable> hexes;
 	
 	
-	public HexagonalPanel (Dimension size, Model model) {
+	public HexagonalPanel (Dimension size, DrawablesRegister dr) {
 		
 		super();
-		hexes = model.getHexes();
+		hexes = dr.getHexes();
 		initialise(size);
 		
 	}
@@ -41,7 +42,7 @@ public class HexagonalPanel extends JPanel {
 		
 		super.paint(g);
 		
-		for (Hex h : hexes) {
+		for (Drawable h : hexes) {
 			
 			Polygon p = h.polygon(SCALE);
 			g.setColor(h.colour());

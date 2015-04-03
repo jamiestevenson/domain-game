@@ -1,29 +1,24 @@
 package main.model;
 
-import java.awt.event.ActionListener;
 import java.util.Collection;
 
-import main.presenter.Hex;
+import main.presenter.DrawablesRegister;
+import main.presenter.HexTile;
+import main.presenter.ModelActions;
 
-public class Model {
+public class Model implements ModelActions {
 	
 	private Simulation simulation;
 	
-	
-	public Model () {
+	public Model (DrawablesRegister drawables) {
 		
 		newGame();
-		
-	}
-	
-
-	public ActionListener getListener_NewGame() {
-
-		return e -> newGame();
+		drawables.register(hexes());
 		
 	}
 
 
+	@Override
 	public void newGame() {
 		
 		simulation = SimulationFactory.twentyFiveDomainSimulation();
@@ -31,7 +26,7 @@ public class Model {
 	}
 
 
-	public Collection<Hex> getHexes() {
+	private Collection<HexTile> hexes () {
 
 		return simulation.hexes();
 		
