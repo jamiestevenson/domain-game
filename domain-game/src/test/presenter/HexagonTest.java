@@ -25,10 +25,10 @@ public class HexagonTest {
 	
 	@Test
 	public void north_x_test() {
-		
-		Hexagon h = new Hexagon(new Point(0, 0), 10);
+		int radius = 10;
+		Hexagon h = new Hexagon(new Point(0, 0), radius);
 		Point north = h.north();
-		int x_dist = (int) Math.sqrt(0.0);
+		int x_dist = (int) Math.round(Math.sqrt((radius*radius)-((radius/2) * (radius/2))));
 		assertEquals(x_dist, north.x);
 		
 	}
