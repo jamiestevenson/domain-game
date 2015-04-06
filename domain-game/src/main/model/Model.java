@@ -21,7 +21,7 @@ public class Model implements ModelActions {
 	@Override
 	public void newGame() {
 		
-		simulation = SimulationFactory.twentyFiveDomainSimulation();
+		simulation = SimulationFactory.island_one_simulation();
 		
 	}
 

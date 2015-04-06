@@ -16,5 +16,7 @@ public interface Presentable {
 	 * @return Point containing (x,y) coordinates
 	 */
 	public Point getLocation ();
+
+	public TILE_TYPE category();
 	
 }

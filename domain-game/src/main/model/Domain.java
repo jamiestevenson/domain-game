@@ -6,12 +6,15 @@ import java.util.Map;
 
 import main.presenter.Presentable;
 import main.presenter.HexTile;
+import main.presenter.TILE_TYPE;
 
-public class Domain implements Presentable {
-
+public abstract class Domain implements Presentable {
+	
+	private HexTile hex;
 	private Point point;
 	private Map<TRADEABLE, Integer> goodsStore;
-	private HexTile hex;
+	private int prestige;
+	
 	
 	public Domain (Point p) {
 		
@@ -29,6 +32,8 @@ public class Domain implements Presentable {
 		for (TRADEABLE t : TRADEABLE.values()) {
 			goodsStore.put(t, 0);
 		}
+		
+		prestige = 0;
 		
 	}
 	
@@ -56,6 +61,17 @@ public class Domain implements Presentable {
 	public Point getLocation() {
 
 		return point;
+		
+	}
+
+
+	@Override
+	public abstract TILE_TYPE category();
+
+
+	public int prestige() {
+
+		return prestige;
 		
 	}
 

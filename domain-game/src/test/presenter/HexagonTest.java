@@ -11,9 +11,17 @@ import org.junit.Test;
 public class HexagonTest {
 
 	@Test
-	public void existence_test() {
+	public void existence_even_test() {
 		
 		Hexagon h = new Hexagon(new Point(0, 0), 1);
+		assertNotNull(h);
+		
+	}
+	
+	@Test
+	public void existence_odd_test() {
+		
+		Hexagon h = new Hexagon(new Point(1, 1), 1);
 		assertNotNull(h);
 		
 	}

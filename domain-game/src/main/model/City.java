@@ -2,12 +2,22 @@ package main.model;
 
 import java.awt.Point;
 
+import main.presenter.TILE_TYPE;
+
 
 public class City extends Domain {
 
 	public City (Point p) {
 		
 		super(p);
+		
+	}
+	
+	
+	@Override
+	public TILE_TYPE category() {
+
+		return TILE_TYPE.CITY;
 		
 	}
 	
@@ -24,5 +34,8 @@ public class City extends Domain {
 		super.addTradeable(TRADEABLE.ARMS);
 		
 	}
+
+
+
 
 }

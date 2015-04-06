@@ -8,10 +8,12 @@ import java.util.List;
 public class HexTile implements Drawable {
 
 	private Point origin;
+	private Presentable subject;
 
 	
 	public HexTile (Presentable d) {
 		
+		this.subject = d;
 		this.origin = d.getLocation();
 		
 	}
@@ -26,7 +28,7 @@ public class HexTile implements Drawable {
 	
 	public Color colour () {
 		
-		return Color.GREEN.darker();
+		return subject.category().colour();
 		
 	}
 	

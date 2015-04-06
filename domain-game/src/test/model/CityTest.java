@@ -2,7 +2,9 @@ package test.model;
 
 import static org.junit.Assert.*;
 import main.model.City;
+import main.model.Domain;
 import main.model.TRADEABLE;
+import main.presenter.TILE_TYPE;
 
 import org.junit.Test;
 
@@ -10,8 +12,15 @@ public class CityTest {
 
 	@Test
 	public void existence_test() {
-		City c = new City(null);
-		assertNotNull(c);
+		Domain d = new City(null);
+		assertNotNull(d);
+	}
+	
+	
+	@Test
+	public void tileType_test() {
+		Domain d = new City(null);
+		assertEquals(TILE_TYPE.CITY, d.category());
 	}
 	
 	
