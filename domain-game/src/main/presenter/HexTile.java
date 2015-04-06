@@ -14,7 +14,7 @@ public class HexTile implements Drawable {
 	public HexTile (Presentable d) {
 		
 		this.subject = d;
-		this.origin = d.getLocation();
+		this.origin = d.location();
 		
 	}
 

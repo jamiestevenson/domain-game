@@ -1,7 +1,6 @@
 package test.model;
 
 import static org.junit.Assert.*;
-import main.model.City;
 import main.model.Simulation;
 import main.model.SimulationFactory;
 

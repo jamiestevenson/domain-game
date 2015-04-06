@@ -15,7 +15,7 @@ public interface Presentable {
 	 * Gets the top left 'origin' of the entity implementing this interface
 	 * @return Point containing (x,y) coordinates
 	 */
-	public Point getLocation ();
+	public Point location ();
 
 	public TILE_TYPE category();
 	

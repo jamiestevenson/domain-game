@@ -58,7 +58,7 @@ public abstract class Domain implements Presentable {
 
 
 	@Override
-	public Point getLocation() {
+	public Point location() {
 
 		return point;
 		

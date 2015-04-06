@@ -1,5 +1,6 @@
 package main.view;
 
+import java.awt.BorderLayout;
 import java.awt.Dimension;
 
 import javax.swing.JFrame;
@@ -21,10 +22,12 @@ import main.presenter.MenuBarController;
 public class View extends JFrame {
 
 	private static final long serialVersionUID = -4277571602364496156L;
-	private static final int SIZE = 900;
-	private static Dimension SCREEN_SIZE = new Dimension (SIZE, SIZE);
+	private static final int HEX_PANEL_SIZE = 900;
+	private static final int INFO_PANEL_WIDTH = 200;
+	private static Dimension SCREEN_SIZE = new Dimension (HEX_PANEL_SIZE+INFO_PANEL_WIDTH, HEX_PANEL_SIZE);
 	
 	private JPanel hexPanel;
+	private JPanel contextPanel;
 	
 	
 	public View (DrawablesRegister dr, MenuBarController mbc) {
@@ -42,8 +45,10 @@ public class View extends JFrame {
 		this.pack();
 		this.setVisible(true);
 		setUpToolBar(controller);
-		hexPanel = new HexagonalPanel(SCREEN_SIZE, dr);
-		this.add(new JScrollPane(hexPanel));
+		hexPanel = new HexagonalPanel(new Dimension(HEX_PANEL_SIZE, HEX_PANEL_SIZE), dr);
+		this.add(new JScrollPane(hexPanel), BorderLayout.EAST);
+		contextPanel = new ContextPanel(new Dimension(INFO_PANEL_WIDTH, HEX_PANEL_SIZE));
+		this.add(contextPanel, BorderLayout.WEST);
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		
 	}
