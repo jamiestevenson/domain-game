@@ -6,9 +6,9 @@ import main.presenter.TILE_TYPE;
 
 public class County extends Domain {
 
-	public County(Point p) {
+	public County(Point p, String name) {
 		
-		super(p);
+		super(p, name);
 
 	}
 

@@ -18,7 +18,8 @@ public class SimulationFactoryTest {
 	@Test
 	public void twentyFiveDomain_test () {
 		
-		Simulation s = SimulationFactory.twentyFiveDomainSimulation();
+		SimulationFactory sf = new SimulationFactory();
+		Simulation s = sf.twentyFiveDomainSimulation();
 		assertEquals(25, s.hexes().size());
 		
 	}
@@ -27,7 +28,8 @@ public class SimulationFactoryTest {
 	@Test
 	public void island_one_test () {
 		
-		Simulation s = SimulationFactory.island_one_simulation();
+		SimulationFactory sf = new SimulationFactory();
+		Simulation s = sf.island_one_simulation();
 		assertEquals(9, s.hexes().size());
 		
 	}

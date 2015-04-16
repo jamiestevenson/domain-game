@@ -2,6 +2,7 @@ package main.presenter;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Observable;
 
 	/**
 	 * 
@@ -14,14 +15,15 @@ import java.util.Collection;
 	 *
 	 */
 
-public class DrawablesRegister {
+public class DrawablesRegister extends Observable {
 	
 		private Collection<Drawable> hexes;
-		
+		private Drawable lastSelected;
 		
 		public DrawablesRegister () {
 			
 			hexes = new ArrayList<Drawable>();
+			lastSelected = null;
 			
 		}
 
@@ -35,6 +37,32 @@ public class DrawablesRegister {
 		public Collection<Drawable> getHexes() {
 
 			return hexes;
+			
+		}
+
+
+		public void setLastSelectedDrawable(Drawable d) {
+			
+			lastSelected = d;
+			changed();
+			
+		}
+		
+		
+		public String lastSelectionSummary () {
+			if (lastSelected == null) {
+				return "Nothing selected!";
+			} else {
+				return lastSelected.toInfoPanelFormat();
+			}
+			
+		}
+		
+		
+		private void changed () {
+			
+			this.setChanged();
+			this.notifyObservers(lastSelected);
 			
 		}
 

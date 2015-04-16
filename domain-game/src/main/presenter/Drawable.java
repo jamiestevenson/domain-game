@@ -17,4 +17,6 @@ public interface Drawable {
 
 		Color colour();
 
+		String toInfoPanelFormat();
+
 }

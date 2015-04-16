@@ -8,10 +8,12 @@ import main.presenter.ModelActions;
 
 public class Model implements ModelActions {
 	
+	private SimulationFactory sf;
 	private Simulation simulation;
 	
 	public Model (DrawablesRegister drawables) {
 		
+		sf = new SimulationFactory();
 		newGame();
 		drawables.register(hexes());
 		
@@ -21,7 +23,7 @@ public class Model implements ModelActions {
 	@Override
 	public void newGame() {
 		
-		simulation = SimulationFactory.island_one_simulation();
+		simulation = sf.island_one_simulation();
 		
 	}
 

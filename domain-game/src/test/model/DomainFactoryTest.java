@@ -25,7 +25,7 @@ public class DomainFactoryTest {
 	public void county_test() {
 		
 		Point p = new Point (0,0);
-		Domain d = DomainFactory.makeCounty(p);
+		Domain d = new DomainFactory().makeCounty(p);
 		assertNotNull(d);
 		
 	}
@@ -34,7 +34,7 @@ public class DomainFactoryTest {
 	public void city_test() {
 		
 		Point p = new Point (0,0);
-		Domain d = DomainFactory.makeCity(p);
+		Domain d = new DomainFactory().makeCity(p);
 		assertNotNull(d);
 		
 	}

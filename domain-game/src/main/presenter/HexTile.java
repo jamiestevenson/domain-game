@@ -52,5 +52,10 @@ public class HexTile implements Drawable {
 		return new Polygon (xs, ys, count);
 		
 	}
+
+	@Override
+	public String toInfoPanelFormat() {
+		return subject.toHTML();
+	}
 	
 }

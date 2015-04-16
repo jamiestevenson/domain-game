@@ -18,5 +18,11 @@ public interface Presentable {
 	public Point location ();
 
 	public TILE_TYPE category();
+
+	/**
+	 * Gets a summary of this object in HTML format for presentation in the side pane
+	 * @return String - may contain HTML tags
+	 */
+	public String toHTML();
 	
 }

@@ -12,7 +12,8 @@ public class SimulationTest {
 	@Test
 	public void existence_test() {
 		
-		Simulation s = SimulationFactory.blankSimulation();
+		SimulationFactory sf = new SimulationFactory();
+		Simulation s = sf.blankSimulation();
 		assertNotNull(s);
 		
 	}
@@ -21,7 +22,8 @@ public class SimulationTest {
 	@Test
 	public void hasSeason_test() {
 		
-		Simulation s = SimulationFactory.blankSimulation();
+		SimulationFactory sf = new SimulationFactory();
+		Simulation s = sf.blankSimulation();
 		assertEquals(SEASON.SPRING, s.season());
 		
 	}
@@ -30,7 +32,8 @@ public class SimulationTest {
 	@Test
 	public void advanceSeason_test() {
 		
-		Simulation s = SimulationFactory.blankSimulation();
+		SimulationFactory sf = new SimulationFactory();
+		Simulation s = sf.blankSimulation();
 		s.advanceSeason();
 		assertEquals(SEASON.SUMMER, s.season());
 		
@@ -40,7 +43,8 @@ public class SimulationTest {
 	@Test
 	public void withOneDomain_test() {
 		
-		Simulation s = SimulationFactory.oneDomainSimulation();
+		SimulationFactory sf = new SimulationFactory();
+		Simulation s = sf.oneDomainSimulation();
 		assertEquals(1, s.hexes().size());
 		
 	}

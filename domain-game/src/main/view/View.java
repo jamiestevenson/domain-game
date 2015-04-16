@@ -47,7 +47,7 @@ public class View extends JFrame {
 		setUpToolBar(controller);
 		hexPanel = new HexagonalPanel(new Dimension(HEX_PANEL_SIZE, HEX_PANEL_SIZE), dr);
 		this.add(new JScrollPane(hexPanel), BorderLayout.EAST);
-		contextPanel = new ContextPanel(new Dimension(INFO_PANEL_WIDTH, HEX_PANEL_SIZE));
+		contextPanel = new ContextPanel(new Dimension(INFO_PANEL_WIDTH, HEX_PANEL_SIZE), dr);
 		this.add(contextPanel, BorderLayout.WEST);
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		

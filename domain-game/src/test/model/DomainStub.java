@@ -9,7 +9,7 @@ public class DomainStub extends Domain {
 
 	public DomainStub(Point p) {
 		
-		super(p);
+		super(p, "Domain Stub");
 		
 	}
 

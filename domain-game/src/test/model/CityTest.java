@@ -12,14 +12,14 @@ public class CityTest {
 
 	@Test
 	public void existence_test() {
-		Domain d = new City(null);
+		Domain d = new City(null, null);
 		assertNotNull(d);
 	}
 	
 	
 	@Test
 	public void tileType_test() {
-		Domain d = new City(null);
+		Domain d = new City(null, null);
 		assertEquals(TILE_TYPE.CITY, d.category());
 	}
 	
@@ -27,7 +27,7 @@ public class CityTest {
 	@Test
 	public void goods () {
 		
-		City c = new City(null);
+		City c = new City(null, null);
 		assertEquals(0, c.stock(TRADEABLE.TRADE_GOODS));
 		
 	}
@@ -36,7 +36,7 @@ public class CityTest {
 	@Test
 	public void manufacture_tradeGoods () {
 		
-		City c = new City(null);
+		City c = new City(null, null);
 		assertEquals(0, c.stock(TRADEABLE.TRADE_GOODS));
 		c.manufactureTradeGoods();
 		assertEquals(1, c.stock(TRADEABLE.TRADE_GOODS));
@@ -47,7 +47,7 @@ public class CityTest {
 	@Test
 	public void manufacture_arms () {
 		
-		City c = new City(null);
+		City c = new City(null, null);
 		assertEquals(0, c.stock(TRADEABLE.ARMS));
 		c.manufactureArms();
 		assertEquals(1, c.stock(TRADEABLE.ARMS));

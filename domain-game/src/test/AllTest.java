@@ -4,6 +4,7 @@ import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 
 import test.model.CityTest;
+import test.model.CountyTest;
 import test.model.DomainFactoryTest;
 import test.model.DomainTest;
 import test.model.ModelTest;
@@ -22,6 +23,7 @@ import test.presenter.TILE_TYPETest;
 		 SimulationTest.class,
 		 SEASONTest.class,
 		 CityTest.class,
+		 CountyTest.class,
 		 ModelTest.class,
 		 HexTest.class,
 		 HexagonTest.class,

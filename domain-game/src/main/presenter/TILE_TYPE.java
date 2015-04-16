@@ -11,18 +11,20 @@ import java.awt.Color;
 
 public enum TILE_TYPE {
 	
-	COUNTY (Color.GREEN.darker()),
-	CITY (Color.LIGHT_GRAY), 
+	COUNTY (Color.GREEN.darker(), "County"),
+	CITY (Color.LIGHT_GRAY, "City"), 
 	
 	// For testing
-	BLANK (Color.PINK);
+	BLANK (Color.PINK, "Test Tile");
 	
 	
 	private Color colour;
+	private String label;
 	
-	private TILE_TYPE (Color c) {
+	private TILE_TYPE (Color c, String l) {
 		
 		this.colour = c;
+		this.label = l;
 		
 	}
 
@@ -32,4 +34,9 @@ public enum TILE_TYPE {
 		
 	}
 	
+	
+	@Override
+	public String toString () {
+		return label;
+	}
 }

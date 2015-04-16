@@ -7,9 +7,9 @@ import main.presenter.TILE_TYPE;
 
 public class City extends Domain {
 
-	public City (Point p) {
+	public City (Point p, String name) {
 		
-		super(p);
+		super(p, name);
 		
 	}
 	

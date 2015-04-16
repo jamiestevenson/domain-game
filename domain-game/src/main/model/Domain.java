@@ -10,15 +10,17 @@ import main.presenter.TILE_TYPE;
 
 public abstract class Domain implements Presentable {
 	
+	private String name;
 	private HexTile hex;
 	private Point point;
 	private Map<TRADEABLE, Integer> goodsStore;
 	private int prestige;
 	
 	
-	public Domain (Point p) {
+	public Domain (Point p, String name) {
 		
 		this.point = p;
+		this.name = name;
 		this.goodsStore = new EnumMap<TRADEABLE, Integer>(TRADEABLE.class);
 		initialise(p);
 		
@@ -56,7 +58,14 @@ public abstract class Domain implements Presentable {
 		
 	}
 
+	
+	public int prestige() {
 
+		return prestige;
+		
+	}
+	
+	
 	@Override
 	public Point location() {
 
@@ -64,15 +73,49 @@ public abstract class Domain implements Presentable {
 		
 	}
 
+	
+	@Override
+	public String toHTML () {
+		
+		StringBuilder reply = new StringBuilder();
+		reply.append("<html>");
+		reply.append("<b>" + name + "</b> <i>("+category().toString()+")</i>");
+		reply.append("<br>");
+		reply.append("Location: (" + point.x + ", " + point.y + ")");
+		reply.append("<br>");
+		reply.append("Prestige: " + prestige);
+		reply.append("<br>");
+		reply.append("<u>Resources:</u>");
+		reply.append("<br>");
+		reply.append(goodsStoreToTable());
+
+		return reply.toString();
+	}
+	
+	
+	private String goodsStoreToTable() {
+
+		StringBuilder reply = new StringBuilder();
+		reply.append("<table>");
+		for(TRADEABLE t : goodsStore.keySet()) {
+			reply.append("<tr>");
+				reply.append("<td>");
+					reply.append(t.toString());
+				reply.append("</td>");
+				reply.append("<td>");
+					reply.append(goodsStore.get(t));
+				reply.append("</td>");
+			reply.append("</tr>");
+		}
+		reply.append("</table>");
+		return reply.toString();
+	}
+
 
 	@Override
 	public abstract TILE_TYPE category();
 
 
-	public int prestige() {
 
-		return prestige;
-		
-	}
 
 }

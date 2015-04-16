@@ -11,7 +11,7 @@ public class CountyTest {
 
 	@Test
 	public void tileType_test() {
-		Domain d = new County(null);
+		Domain d = new County(null, null);
 		assertEquals(TILE_TYPE.COUNTY, d.category());
 	}
 
