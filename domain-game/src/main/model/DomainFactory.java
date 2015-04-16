@@ -22,7 +22,7 @@ public class DomainFactory {
 		
 	}
 	
-	public Domain makeCounty(Point p) {
+	public County makeCounty(Point p) {
 
 		return new County(p, generateCountyName());
 		

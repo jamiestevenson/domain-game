@@ -1,8 +1,0 @@
-Next thing to do:
-Want to click on hex to get context information
-Need to capture clicks on hexpanel
-Need translate click location to hex
-Need to return information from hex
-Need to add identifier information e.g. names to domains
-Need to generate unique identifiers for domains
-Domain factory is no longer static

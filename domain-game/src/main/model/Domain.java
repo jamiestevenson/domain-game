@@ -3,6 +3,7 @@ package main.model;
 import java.awt.Point;
 import java.util.EnumMap;
 import java.util.Map;
+import java.util.Set;
 
 import main.presenter.Presentable;
 import main.presenter.HexTile;
@@ -14,6 +15,7 @@ public abstract class Domain implements Presentable {
 	private HexTile hex;
 	private Point point;
 	private Map<TRADEABLE, Integer> goodsStore;
+	private Set<Army> armies;
 	private int prestige;
 	
 	
