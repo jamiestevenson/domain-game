@@ -10,13 +10,13 @@ public class Simulation {
 	
 	// The current season of the simulation.
 	private SEASON season;
-	private List<Domain> domains;
+	private Collection<HexTile> hexes;
 	
 	
 	public Simulation (List<Domain> domains) {
 		
 		this.season = SEASON.SPRING;
-		this.domains = domains;
+		this.hexes = domains.stream().map(Domain::getHex).collect(Collectors.toSet());
 		
 	}
 
@@ -25,6 +25,7 @@ public class Simulation {
 		return season;
 	}
 
+	
 	public void advanceSeason () {
 		
 		season = SEASON.advance(season);
@@ -34,7 +35,7 @@ public class Simulation {
 
 	public Collection<HexTile> hexes() {
 
-		return domains.stream().map(Domain::getHex).collect(Collectors.toSet());
+		return hexes;
 		
 	}
 	

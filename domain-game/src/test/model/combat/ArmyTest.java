@@ -1,13 +1,13 @@
-package test.model;
+package test.model.combat;
 
 import static org.junit.Assert.*;
 
 import java.awt.Point;
 
-import main.model.Army;
 import main.model.County;
 import main.model.DomainFactory;
 import main.model.TRADEABLE;
+import main.model.combat.Army;
 
 import org.junit.Test;
 

@@ -14,6 +14,16 @@ public class SimulationFactory {
 		
 	}
 	
+	
+	private void bindNeighbours(List<Domain> domains) {
+		
+		for (Domain d : domains) {
+			d.bindNeighbours(domains);
+		}
+		
+	}
+	
+	
 	public Simulation blankSimulation () {
 		
 		List<Domain> d = new ArrayList<>();
@@ -39,18 +49,17 @@ public class SimulationFactory {
 		for (int i = 0; i < 5; i++) {
 			for (int j = 0; j < 5; j++) {
 				
-				//d.add(new Domain(new Point (i,j)));
 				d.add(df.makeCounty(new Point(i,j)));
 				
 			}
 		}
-		
+		bindNeighbours(d);
 		Simulation s = new Simulation(d);
 		return s;
 		
 	}
 	
-	
+
 	public Simulation island_one_simulation () {
 		
 		List<Domain> d = new ArrayList<>();

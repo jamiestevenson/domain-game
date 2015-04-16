@@ -2,6 +2,8 @@ package main.model;
 
 import java.awt.Point;
 
+import main.model.combat.Army;
+import main.model.combat.ArmyFactory;
 import main.presenter.TILE_TYPE;
 
 public class County extends Domain {
@@ -36,7 +38,8 @@ public class County extends Domain {
 	
 	private void createArmy() {
 		
-		army = new Army(this);
+		this.army = ArmyFactory.army(this);
+		super.placeArmy(this.army);
 		
 	}
 	
@@ -46,5 +49,6 @@ public class County extends Domain {
 		return army;
 		
 	}
+
 
 }

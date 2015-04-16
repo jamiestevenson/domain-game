@@ -1,4 +1,17 @@
 TODO:
+Maybe pull out all the location checking from the domains and 
+have a board to ask - this would also deal with adjacency. 
+and where it is legal to move to.
+
+Maybe this is what Simulation is for - use for now to see if 
+there is enough to pull out something to elsewhere.
+
+Actually - it may be better to have tiles determine if they are traverse-able - this will involve a 
+bit more initialisation, but will avoid the need for a 'map manager'
+
+The board would also be able to deal with disbanding as this 
+is not really the purview of the 
 
 Different qualities and kinds of trade goods.
+
 Combat mechanics
