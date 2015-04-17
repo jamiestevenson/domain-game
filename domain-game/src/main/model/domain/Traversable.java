@@ -1,4 +1,6 @@
-package main.model.combat;
+package main.model.domain;
+
+import java.awt.Point;
 
 	/**
 	 * @author Jamie
@@ -24,5 +26,9 @@ public interface Traversable {
 	void moveWest(Army army);
 	
 	void moveNorthWest(Army army);
+
+	Point location();
+
+	boolean isSamePlaceAs(Traversable place);
 	
 }

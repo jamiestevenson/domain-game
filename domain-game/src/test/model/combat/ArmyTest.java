@@ -6,8 +6,8 @@ import java.awt.Point;
 
 import main.model.County;
 import main.model.DomainFactory;
-import main.model.TRADEABLE;
-import main.model.combat.Army;
+import main.model.domain.CountyArmy;
+import main.model.domain.TRADEABLE;
 
 import org.junit.Test;
 
@@ -17,7 +17,7 @@ public class ArmyTest {
 	public void create_test () {
 		
 		County c = new DomainFactory().makeCounty(new Point(0,0));
-		Army a = new Army(c);
+		CountyArmy a = new CountyArmy(c);
 		assertNotNull(a);
 		
 	}
@@ -27,7 +27,7 @@ public class ArmyTest {
 	public void canEquip_test () {
 		
 		County c = new DomainFactory().makeCounty(new Point(0,0));
-		Army a = new Army(c);
+		CountyArmy a = new CountyArmy(c);
 		assertFalse(a.canEquip(TRADEABLE.FOOD_RESERVE));
 		assertFalse(a.canEquip(TRADEABLE.TRADE_GOODS));
 		assertTrue(a.canEquip(TRADEABLE.ARMS));
@@ -39,7 +39,7 @@ public class ArmyTest {
 	public void armWithGoods_test () {
 		
 		County c = new DomainFactory().makeCounty(new Point(0,0));
-		Army a = new Army(c);
+		CountyArmy a = new CountyArmy(c);
 		assertTrue(a.canEquip(TRADEABLE.ARMS));
 		a.arm(TRADEABLE.ARMS);
 		assertFalse(a.canEquip(TRADEABLE.ARMS));

@@ -1,4 +1,4 @@
-package main.model;
+package main.model.domain;
 
 public enum TRADEABLE {
 	

@@ -3,7 +3,7 @@ package test.model;
 import static org.junit.Assert.*;
 import main.model.City;
 import main.model.Domain;
-import main.model.TRADEABLE;
+import main.model.domain.TRADEABLE;
 import main.presenter.TILE_TYPE;
 
 import org.junit.Test;

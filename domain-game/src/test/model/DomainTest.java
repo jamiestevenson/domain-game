@@ -6,7 +6,7 @@ import java.awt.Color;
 import java.awt.Point;
 
 import main.model.Domain;
-import main.model.TRADEABLE;
+import main.model.domain.TRADEABLE;
 
 import org.junit.Test;
 

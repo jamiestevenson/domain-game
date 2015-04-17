@@ -1,8 +1,6 @@
-package main.model.combat;
+package main.model.domain;
 
-import main.model.County;
-import main.model.Domain;
-import main.model.TRADEABLE;
+
 
 	/**
 	 * @author Jamie
@@ -10,19 +8,21 @@ import main.model.TRADEABLE;
 	 * Represents any type of unit that is in the 'combat' layer.
 	 */
 
-public class Army {
+public class CountyArmy implements Army {
 
-	private County home;
+	private Traversable home;
 	private TRADEABLE arms;
 	private Traversable myLocation;
 	
-	public Army (County home) {
+	
+	public CountyArmy (Traversable home) {
 		
 		this.home = home;
 		arms = null;
 		myLocation = home;
 		
 	}
+	
 	
 	public void arm (TRADEABLE newArms) {
 		
@@ -39,13 +39,6 @@ public class Army {
 	}
 	
 	
-	public void setLocation(Domain domain) {
-		
-		this.myLocation = domain;
-		
-	}
-	
-	
 	public boolean canEquip (TRADEABLE newArms) {
 		
 		return (this.arms == null && newArms == TRADEABLE.ARMS);
@@ -53,54 +46,79 @@ public class Army {
 	}
 
 	
-	public boolean isFrom (Domain domain) {
-		// Comparing county and domain on location (domain attribute)
-		return this.home.location().equals(domain.location());
+
+	@Override
+	public boolean canTraverse (Traversable destination) {
+
+		return true;
 		
 	}
-
 	
-	void moveNorthEast() {
+	
+	@Override
+	public void setLocation(Traversable domain) {
+		
+		this.myLocation = domain;
+		
+	}
+	
+	
+	@Override
+	public boolean isFrom (Traversable place) {
+
+		return this.home.isSamePlaceAs(place);
+		
+	}
+	
+	
+	@Override
+	public void moveNorthEast() {
 		
 		myLocation.moveNorthEast(this);
 		
 	}
 	
-
+	
+	@Override
 	public void moveEast() {
 		
 		myLocation.moveEast(this);
 		
 	}
 	
+	
+	@Override
 	public void moveSouthEast() {
 		
 		myLocation.moveSouthEast(this);
 		
 	}
 	
+	
+	@Override
 	public void moveSouthWest() {
 		
 		myLocation.moveSouthWest(this);
 		
 	}
 		
+	
+	@Override
 	public void moveWest() {
 		
 		myLocation.moveWest(this);
 		
 	}
 	
+	
+	@Override
 	public void moveNorthWest() {
 		
 		myLocation.moveNorthWest(this);
 		
 	}
 
-	public boolean canTraverse(Domain destination) {
+	
 
-		return true;
-		
-	}
 	
 }

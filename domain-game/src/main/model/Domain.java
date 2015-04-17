@@ -7,8 +7,9 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
-import main.model.combat.Army;
-import main.model.combat.Traversable;
+import main.model.domain.Army;
+import main.model.domain.TRADEABLE;
+import main.model.domain.Traversable;
 import main.presenter.Presentable;
 import main.presenter.HexTile;
 import main.presenter.TILE_TYPE;
@@ -85,6 +86,14 @@ public abstract class Domain implements Presentable, Traversable {
 	public Point location() {
 
 		return point;
+		
+	}
+	
+	
+	@Override
+	public boolean isSamePlaceAs(Traversable place) {
+
+		return location().equals(place.location());
 		
 	}
 

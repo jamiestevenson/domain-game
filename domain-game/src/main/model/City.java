@@ -2,6 +2,7 @@ package main.model;
 
 import java.awt.Point;
 
+import main.model.domain.TRADEABLE;
 import main.presenter.TILE_TYPE;
 
 

@@ -9,7 +9,7 @@ import java.util.List;
 import main.model.County;
 import main.model.Domain;
 import main.model.DomainFactory;
-import main.model.combat.Army;
+import main.model.domain.Army;
 import main.presenter.TILE_TYPE;
 
 import org.junit.Test;
