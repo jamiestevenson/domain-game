@@ -8,4 +8,10 @@ public interface ModelActions {
 	 */
 	public void newGame();
 
+	
+	/**
+	 * Informs the model that to advance the game season
+	 */
+	public void advanceSeason();
+
 }

@@ -1,6 +1,5 @@
 package main.view;
 
-import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.util.Observable;
@@ -33,7 +32,7 @@ public class ContextPanel extends JPanel implements Observer {
 		this.setPreferredSize(d);
 		this.setBackground(Color.LIGHT_GRAY);
 		this.setLayout(new BoxLayout(this, BoxLayout.PAGE_AXIS));
-		this.add(new JLabel("Selected:"));
+		this.add(new JLabel("<html><u>Selected:</u>"));
 		this.add(Box.createRigidArea(new Dimension(0,5)));
 		summary = new JLabel();
 		this.add(summary);

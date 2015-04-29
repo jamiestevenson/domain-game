@@ -30,6 +30,11 @@ public class MenuBarControllerTest {
 			public void newGame() {
 				triggered = true;
 			}
+			@Override
+			public void advanceSeason() {
+				// TODO Auto-generated method stub
+				
+			}
 		}
 		
 		mockModelActions m = new mockModelActions();

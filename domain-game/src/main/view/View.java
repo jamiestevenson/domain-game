@@ -57,12 +57,19 @@ public class View extends JFrame {
 	private void setUpToolBar(MenuBarController m) {
 		
 		JMenuBar bar = new JMenuBar();
+			JMenu menu = new JMenu("Game");
+				JMenuItem item = new JMenuItem("New");
+					item.addActionListener(m.newGame_ActionListener());
+				menu.add(item);
+			bar.add(menu);
+			menu = new JMenu("Time");
+				item = new JMenuItem("Advance Season");
+					item.addActionListener(m.advanceSeason_ActionListener());
+				menu.add(item);
+			bar.add(menu);
 		this.setJMenuBar(bar);
-		JMenu menu = new JMenu("Game");
-		bar.add(menu);
-		JMenuItem item = new JMenuItem("New");
-		item.addActionListener(m.newGame_ActionListener());
-		menu.add(item);	
+		
+
 		
 	}
 	

@@ -36,7 +36,4 @@ public class City extends Domain {
 		
 	}
 
-
-
-
 }

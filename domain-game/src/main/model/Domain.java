@@ -5,6 +5,8 @@ import java.util.Collection;
 import java.util.EnumMap;
 import java.util.HashSet;
 import java.util.Map;
+import java.util.Observable;
+import java.util.Observer;
 import java.util.Set;
 
 import main.model.domain.Army;
@@ -14,7 +16,7 @@ import main.presenter.Presentable;
 import main.presenter.HexTile;
 import main.presenter.TILE_TYPE;
 
-public abstract class Domain implements Presentable, Traversable {
+public abstract class Domain implements Presentable, Traversable, Observer {
 	
 	private String name;
 	private HexTile hex;
@@ -23,6 +25,10 @@ public abstract class Domain implements Presentable, Traversable {
 	private Set<Army> armies;
 	private int prestige;
 	private int fortification;
+	
+	private int actionsLeft;
+	private int importsLeft;
+	private int exportsLeft;
 	
 	private Domain neighbour_NE;
 	private Domain neighbour_E;
@@ -38,8 +44,7 @@ public abstract class Domain implements Presentable, Traversable {
 		this.name = name;
 		this.goodsStore = new EnumMap<TRADEABLE, Integer>(TRADEABLE.class);
 		this.armies = new HashSet<Army>();
-		prestige = 0;
-		fortification = 0;
+		
 		initialise(p);
 		
 	}
@@ -54,7 +59,10 @@ public abstract class Domain implements Presentable, Traversable {
 		}
 		
 		prestige = 0;
-		
+		fortification = 0;
+		actionsLeft = 0;
+		importsLeft = 0;
+		exportsLeft = 0;
 	}
 	
 	
@@ -131,6 +139,13 @@ public abstract class Domain implements Presentable, Traversable {
 		reply.append("<u>Resources:</u>");
 		reply.append("<br>");
 		reply.append(goodsStoreToTable());
+		reply.append("<u>Left to do this turn:</u>");
+		reply.append("<br>");
+		reply.append("Actions: " + actionsLeft);
+		reply.append("<br>");
+		reply.append("Exports: " + exportsLeft);
+		reply.append("<br>");
+		reply.append("Imports: " + importsLeft);
 
 		return reply.toString();
 		
@@ -227,73 +242,98 @@ public abstract class Domain implements Presentable, Traversable {
 	
 	@Override
 	public void moveNorthEast (Army army) {
+		
 		if (neighbour_NE != null && armies.contains(army)) {
 			if (army.canTraverse(neighbour_NE)) {
 				armies.remove(army);
 				neighbour_NE.accept(army);
 			}
 		}
+		
 	}
 
 
 	@Override
 	public void moveEast (Army army) {
+		
 		if (neighbour_E != null && armies.contains(army)) {
 			if (army.canTraverse(neighbour_E)) {
 				armies.remove(army);
 				neighbour_E.accept(army);
 			}
 		}
+		
 	}
 	
 	
 	@Override
 	public void moveSouthEast (Army army) {
+		
 		if (neighbour_SE != null && armies.contains(army)) {
 			if (army.canTraverse(neighbour_SE)) {
 				armies.remove(army);
 				neighbour_SE.accept(army);
 			}
 		}
+		
 	}
 	
 	
 	@Override
 	public void moveSouthWest (Army army) {
+		
 		if (neighbour_SW != null && armies.contains(army)) {
 			if (army.canTraverse(neighbour_SW)) {
 				armies.remove(army);
 				neighbour_SW.accept(army);
 			}
 		}
+		
 	}
 	
 	
 	@Override
 	public void moveWest (Army army) {
+		
 		if (neighbour_W != null && armies.contains(army)) {
 			if (army.canTraverse(neighbour_W)) {
 				armies.remove(army);
 				neighbour_W.accept(army);
 			}
 		}
+		
 	}
 	
 	
 	@Override
 	public void moveNorthWest (Army army) {
+		
 		if (neighbour_NW != null && armies.contains(army)) {
 			if (army.canTraverse(neighbour_NW)) {
 				armies.remove(army);
 				neighbour_NW.accept(army);
 			}
 		}
+		
 	}
 	
 	
 	private void accept(Army army) {
+		
 		army.setLocation(this);
 		armies.add(army);
+		
+	}
+	
+	
+	@Override
+	public void update(Observable o, Object arg) {
+		
+		// This is the 'turn' update - the arg will be a model.domain.SEASON
+		//SEASON s = (SEASON) arg;
+		this.actionsLeft = 1;
+		this.importsLeft = 1;
+		this.exportsLeft = 1;
 		
 	}
 

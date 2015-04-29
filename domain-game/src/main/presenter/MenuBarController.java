@@ -20,4 +20,11 @@ public class MenuBarController {
 		
 	}
 
+
+	public ActionListener advanceSeason_ActionListener() {
+
+		return e -> model.advanceSeason();
+		
+	}
+
 }

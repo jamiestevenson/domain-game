@@ -34,4 +34,12 @@ public class Model implements ModelActions {
 		
 	}
 
+
+	@Override
+	public void advanceSeason() {
+		
+		simulation.advanceSeason();
+		
+	}
+
 }
