@@ -57,5 +57,22 @@ public class DomainTest {
 		
 	}
 	
+	@Test
+	public void hasFortification () {
+		
+		Domain d1 = new DomainStub(new Point(0, 0));
+		assertEquals(0, d1.fortification());
+		
+	}
+	
+	@Test
+	public void isFortified () {
+		
+		Domain d1 = new DomainStub(new Point(0, 0));
+		d1.fortify();
+		assertEquals(1, d1.fortification());
+		
+	}
+	
 
 }

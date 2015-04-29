@@ -22,6 +22,7 @@ public abstract class Domain implements Presentable, Traversable {
 	private Map<TRADEABLE, Integer> goodsStore;
 	private Set<Army> armies;
 	private int prestige;
+	private int fortification;
 	
 	private Domain neighbour_NE;
 	private Domain neighbour_E;
@@ -38,6 +39,7 @@ public abstract class Domain implements Presentable, Traversable {
 		this.goodsStore = new EnumMap<TRADEABLE, Integer>(TRADEABLE.class);
 		this.armies = new HashSet<Army>();
 		prestige = 0;
+		fortification = 0;
 		initialise(p);
 		
 	}
@@ -90,6 +92,21 @@ public abstract class Domain implements Presentable, Traversable {
 	}
 	
 	
+	public int fortification() {
+		
+		return fortification;
+		
+	}
+	
+	
+	public void fortify() {
+		
+		fortification++;
+		
+	}
+	
+	
+	
 	@Override
 	public boolean isSamePlaceAs(Traversable place) {
 
@@ -108,6 +125,8 @@ public abstract class Domain implements Presentable, Traversable {
 		reply.append("Location: (" + point.x + ", " + point.y + ")");
 		reply.append("<br>");
 		reply.append("Prestige: " + prestige);
+		reply.append("<br>");
+		reply.append("Fortification: " + fortification);
 		reply.append("<br>");
 		reply.append("<u>Resources:</u>");
 		reply.append("<br>");
