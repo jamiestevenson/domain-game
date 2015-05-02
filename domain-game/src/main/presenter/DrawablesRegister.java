@@ -4,6 +4,10 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Observable;
 
+import javax.swing.JPanel;
+
+import main.model.Model;
+
 	/**
 	 * 
 	 * @author Jamie
@@ -19,11 +23,14 @@ public class DrawablesRegister extends Observable {
 	
 		private Collection<Drawable> hexes;
 		private Drawable lastSelected;
+		private Drawable model;
 		
-		public DrawablesRegister () {
+		public DrawablesRegister (Model model) {
 			
 			hexes = new ArrayList<Drawable>();
 			lastSelected = null;
+			this.model = model;
+			register(model.hexes());
 			
 		}
 
@@ -49,11 +56,12 @@ public class DrawablesRegister extends Observable {
 		}
 		
 		
-		public String lastSelectionSummary () {
+		public JPanel lastSelectionSummary () {
+			
 			if (lastSelected == null) {
-				return "Nothing selected!";
+				return model.contextPanel();
 			} else {
-				return lastSelected.toInfoPanelFormat();
+				return lastSelected.contextPanel();
 			}
 			
 		}

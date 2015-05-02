@@ -9,8 +9,8 @@ public class RunThis {
 	
 	public static void main (String[] args) {
 		
-		DrawablesRegister drawables = new DrawablesRegister();
-		Model m = new Model(drawables);
+		Model m = new Model();
+		DrawablesRegister drawables = new DrawablesRegister(m);
 		MenuBarController mbc = new MenuBarController(m);
 		
         javax.swing.SwingUtilities.invokeLater(new Runnable() {

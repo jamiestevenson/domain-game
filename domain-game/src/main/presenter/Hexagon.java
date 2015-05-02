@@ -91,6 +91,7 @@ public class Hexagon {
 	}
 	
 	
+	
 	public List<Point> points () {
 		
 		List<Point> reply = new ArrayList<>();
@@ -104,4 +105,5 @@ public class Hexagon {
 		
 	}
 	
+
 }

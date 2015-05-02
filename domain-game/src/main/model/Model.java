@@ -1,21 +1,28 @@
 package main.model;
 
+import java.awt.Color;
+import java.awt.Polygon;
 import java.util.Collection;
 
-import main.presenter.DrawablesRegister;
+import javax.swing.JPanel;
+
+import main.presenter.Drawable;
 import main.presenter.HexTile;
 import main.presenter.ModelActions;
+import main.presenter.SimulationPanel;
 
-public class Model implements ModelActions {
+public class Model implements ModelActions, Drawable {
 	
 	private SimulationFactory sf;
 	private Simulation simulation;
+	private JPanel gameStatusPanel;
 	
-	public Model (DrawablesRegister drawables) {
+	
+	public Model () {
 		
 		sf = new SimulationFactory();
 		newGame();
-		drawables.register(hexes());
+		gameStatusPanel = new SimulationPanel(simulation);
 		
 	}
 
@@ -28,7 +35,7 @@ public class Model implements ModelActions {
 	}
 
 
-	private Collection<HexTile> hexes () {
+	public Collection<HexTile> hexes () {
 
 		return simulation.hexes();
 		
@@ -40,6 +47,24 @@ public class Model implements ModelActions {
 		
 		simulation.advanceSeason();
 		
+	}
+
+
+	@Override
+	public Polygon polygon(int scale) {
+		return null;
+	}
+
+
+	@Override
+	public Color colour() {
+		return null;
+	}
+
+
+	@Override
+	public JPanel contextPanel() {
+		return gameStatusPanel;
 	}
 
 }

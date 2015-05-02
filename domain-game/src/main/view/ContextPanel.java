@@ -16,7 +16,7 @@ import main.presenter.DrawablesRegister;
 public class ContextPanel extends JPanel implements Observer {
 	
 	private static final long serialVersionUID = -158148840335554855L;
-	private JLabel summary;
+	private JPanel summary;
 	
 	public ContextPanel (Dimension dimension, DrawablesRegister dr) {
 		
@@ -33,8 +33,8 @@ public class ContextPanel extends JPanel implements Observer {
 		this.setBackground(Color.LIGHT_GRAY);
 		this.setLayout(new BoxLayout(this, BoxLayout.PAGE_AXIS));
 		this.add(new JLabel("<html><u>Selected:</u>"));
-		this.add(Box.createRigidArea(new Dimension(0,5)));
-		summary = new JLabel();
+		this.add(Box.createRigidArea(new Dimension(0,4)));
+		summary = new JPanel();
 		this.add(summary);
 		
 	}
@@ -42,9 +42,12 @@ public class ContextPanel extends JPanel implements Observer {
 
 	@Override
 	public void update(Observable o, Object arg) {
+		
 		Drawable d = (Drawable) arg;
-		summary.setText(d.toInfoPanelFormat());
+		this.removeAll();
+		this.add(d.contextPanel());
 		this.repaint();
+		
 	}
 
 

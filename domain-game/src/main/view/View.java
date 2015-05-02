@@ -8,7 +8,6 @@ import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JPanel;
-import javax.swing.JScrollPane;
 
 import main.presenter.DrawablesRegister;
 import main.presenter.MenuBarController;
@@ -46,7 +45,8 @@ public class View extends JFrame {
 		this.setVisible(true);
 		setUpToolBar(controller);
 		hexPanel = new HexagonalPanel(new Dimension(HEX_PANEL_SIZE, HEX_PANEL_SIZE), dr);
-		this.add(new JScrollPane(hexPanel), BorderLayout.EAST);
+		//this.add(new JScrollPane(hexPanel), BorderLayout.EAST);
+		this.add(hexPanel, BorderLayout.EAST);
 		contextPanel = new ContextPanel(new Dimension(INFO_PANEL_WIDTH, HEX_PANEL_SIZE), dr);
 		this.add(contextPanel, BorderLayout.WEST);
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -68,8 +68,6 @@ public class View extends JFrame {
 				menu.add(item);
 			bar.add(menu);
 		this.setJMenuBar(bar);
-		
-
 		
 	}
 	

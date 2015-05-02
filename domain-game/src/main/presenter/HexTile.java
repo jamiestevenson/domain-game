@@ -5,6 +5,9 @@ import java.awt.Point;
 import java.awt.Polygon;
 import java.util.List;
 
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+
 public class HexTile implements Drawable {
 
 	private Point origin;
@@ -53,9 +56,12 @@ public class HexTile implements Drawable {
 		
 	}
 
+
 	@Override
-	public String toInfoPanelFormat() {
-		return subject.toHTML();
+	public JPanel contextPanel() {
+		JPanel reply = new JPanel();
+		reply.add(new JLabel(subject.toHTML()));
+		return reply;
 	}
 	
 }

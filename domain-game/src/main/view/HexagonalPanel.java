@@ -65,6 +65,7 @@ public class HexagonalPanel extends JPanel implements MouseListener {
 	    
 	}
 	
+	
 	private void drawHexBodies (Graphics2D g) {
 		
 		for (Drawable h : hexes) {	
@@ -109,9 +110,6 @@ public class HexagonalPanel extends JPanel implements MouseListener {
 	}
 	
 	
-	
-	
-
 	// Mouse Events
 	
 	@Override

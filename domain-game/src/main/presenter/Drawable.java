@@ -3,6 +3,8 @@ package main.presenter;
 import java.awt.Color;
 import java.awt.Polygon;
 
+import javax.swing.JPanel;
+
 	/**
 	 * @author Jamie
 	 *
@@ -17,6 +19,6 @@ public interface Drawable {
 
 		Color colour();
 
-		String toInfoPanelFormat();
+		JPanel contextPanel();
 
 }
