@@ -10,7 +10,8 @@ public class DrawablesRegisterTest {
 
 	@Test
 	public void existence_test() {
-		DrawablesRegister dr = new DrawablesRegister(new Model());
+		Model m = new Model();
+		DrawablesRegister dr = new DrawablesRegister(m.hexes(), m.presenter());
 		assertNotNull(dr);
 	}
 	
@@ -18,7 +19,8 @@ public class DrawablesRegisterTest {
 	@Test
 	public void registerIsEmpty_Test () {
 		
-		DrawablesRegister dr = new DrawablesRegister(new Model());
+		Model m = new Model();
+		DrawablesRegister dr = new DrawablesRegister(m.hexes(), m.presenter());
 		assertFalse(dr.getHexes().isEmpty());
 		
 	}

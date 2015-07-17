@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Observable;
 
-import main.model.Model;
 
 	/**
 	 * 
@@ -21,20 +20,14 @@ public class DrawablesRegister extends Observable {
 	
 		private Collection<Drawable> hexes;
 		private Drawable lastSelected;
-		private Drawable model;
+		private SimulationPresenter simulation;
 		
-		public DrawablesRegister (Model model) {
+		public DrawablesRegister (Collection<HexTile> d, SimulationPresenter sim) {
 			
 			hexes = new ArrayList<Drawable>();
 			lastSelected = null;
-			this.model = model;
-			register(model.hexes());
-			
-		}
-
-		
-		public void register(Collection<HexTile> collection) {
-			hexes.addAll(collection);
+			hexes.addAll(d);
+			simulation = sim;
 			
 		}
 
@@ -58,7 +51,7 @@ public class DrawablesRegister extends Observable {
 		public String lastSelectionSummary () {
 			
 			if (lastSelected == null) {
-				return model.contextDescription();
+				return simulation.contextDescription();
 			} else {
 				return lastSelected.contextDescription();
 			}
@@ -69,7 +62,7 @@ public class DrawablesRegister extends Observable {
 		private void changed () {
 			
 			this.setChanged();
-			this.notifyObservers(lastSelected);
+			this.notifyObservers(lastSelectionSummary());
 			
 		}
 

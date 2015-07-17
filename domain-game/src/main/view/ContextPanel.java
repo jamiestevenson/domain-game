@@ -9,7 +9,6 @@ import javax.swing.BoxLayout;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-import main.presenter.Drawable;
 import main.presenter.DrawablesRegister;
 
 public class ContextPanel extends JPanel implements Observer {
@@ -52,8 +51,8 @@ public class ContextPanel extends JPanel implements Observer {
 	@Override
 	public void update(Observable o, Object arg) {
 		
-		Drawable d = (Drawable) arg;
-		setPanelContents(d.contextDescription());
+		String d = (String) arg;
+		setPanelContents(d);
 		this.repaint();
 		
 	}

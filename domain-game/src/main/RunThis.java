@@ -10,7 +10,7 @@ public class RunThis {
 	public static void main (String[] args) {
 		
 		Model m = new Model();
-		DrawablesRegister drawables = new DrawablesRegister(m);
+		DrawablesRegister drawables = new DrawablesRegister(m.hexes(), m.presenter());
 		MenuBarController mbc = new MenuBarController(m);
 		
         javax.swing.SwingUtilities.invokeLater(new Runnable() {

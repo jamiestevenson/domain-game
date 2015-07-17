@@ -34,7 +34,7 @@ public class Simulation extends Observable {
 		
 		season = SEASON.advance(season);
 		this.setChanged();
-		notifyObservers(season);
+		notifyObservers(season.toString());
 		
 	}
 

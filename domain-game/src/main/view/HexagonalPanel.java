@@ -77,7 +77,7 @@ public class HexagonalPanel extends JPanel implements MouseListener {
 			Polygon p = h.polygon(SCALE);
 			g.setColor(h.colour());
 			g.fillPolygon(p);
-			g.drawPolygon(p);
+			//g.drawPolygon(p);
 		}
 		
 	}
@@ -99,11 +99,20 @@ public class HexagonalPanel extends JPanel implements MouseListener {
 			g.drawPolygon(p);
 		}
 		
-		if (drawLast != null) {
-			g.setColor(SELECTION);
-			g.setStroke(new BasicStroke(5.0f));
-			g.drawPolygon(drawLast);
+		if (drawLast == null) {
+			draw.setLastSelectedDrawable(null);
+		} else {
+			drawSelectionHighlight(g, drawLast);
 		}
+		
+	}
+	
+	
+	private void drawSelectionHighlight (Graphics2D g, Polygon p) {
+		
+		g.setColor(SELECTION);
+		g.setStroke(new BasicStroke(5.0f));
+		g.drawPolygon(p);
 		
 	}
 	

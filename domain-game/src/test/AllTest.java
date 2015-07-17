@@ -11,6 +11,7 @@ import test.model.ModelTest;
 import test.model.SEASONTest;
 import test.model.SimulationFactoryTest;
 import test.model.SimulationTest;
+import test.model.combat.ArmyTest;
 import test.presenter.DrawablesRegisterTest;
 import test.presenter.HexTest;
 import test.presenter.HexagonTest;
@@ -19,7 +20,9 @@ import test.presenter.TILE_TYPETest;
 
 	
 @RunWith(Suite.class)
-@Suite.SuiteClasses({DomainTest.class,
+@Suite.SuiteClasses({
+		 ArmyTest.class,
+		 DomainTest.class,
 		 SimulationTest.class,
 		 SEASONTest.class,
 		 CityTest.class,

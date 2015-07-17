@@ -3,25 +3,24 @@ package main.presenter;
 import java.util.Observable;
 import java.util.Observer;
 
-import main.model.SEASON;
 import main.model.Simulation;
 
-public class SimulationPanel implements Observer {
+public class SimulationPresenter implements Observer {
 	
 	private StringBuffer status;
 	
-	public SimulationPanel (Simulation s) {
+	public SimulationPresenter (Simulation s) {
 		
 		s.addObserver(this);
-		setContents(s.season());
+		status = new StringBuffer("Season: SPRING"); //hack!
 		
 	}
 
 	
-	private void setContents (SEASON s) {
+	private void setContents (String s) {
 		
 		status = new StringBuffer();
-		status.append("Season: "+s.toString());
+		status.append("Season: " + s);
 		
 	}
 	
@@ -35,8 +34,8 @@ public class SimulationPanel implements Observer {
 
 	@Override
 	public void update(Observable o, Object arg) {
-		SEASON s = (SEASON) arg;
-		setContents(s);
+		String season = (String) arg;
+		setContents(season);
 	}
 
 }

@@ -7,20 +7,20 @@ import java.util.Collection;
 import main.presenter.Drawable;
 import main.presenter.HexTile;
 import main.presenter.ModelActions;
-import main.presenter.SimulationPanel;
+import main.presenter.SimulationPresenter;
 
 public class Model implements ModelActions, Drawable {
 	
 	private SimulationFactory sf;
 	private Simulation simulation;
-	private SimulationPanel gameStatusPanel;
+	private SimulationPresenter gameStatusPanel;
 	
 	
 	public Model () {
 		
 		sf = new SimulationFactory();
 		newGame();
-		gameStatusPanel = new SimulationPanel(simulation);
+		gameStatusPanel = new SimulationPresenter(simulation);
 		
 	}
 
@@ -63,6 +63,13 @@ public class Model implements ModelActions, Drawable {
 	@Override
 	public String contextDescription() {
 		return  gameStatusPanel.contextDescription();
+	}
+
+
+	public SimulationPresenter presenter() {
+
+		return gameStatusPanel;
+		
 	}
 
 }
