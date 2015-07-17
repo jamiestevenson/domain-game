@@ -4,8 +4,6 @@ import java.awt.Color;
 import java.awt.Polygon;
 import java.util.Collection;
 
-import javax.swing.JPanel;
-
 import main.presenter.Drawable;
 import main.presenter.HexTile;
 import main.presenter.ModelActions;
@@ -15,7 +13,7 @@ public class Model implements ModelActions, Drawable {
 	
 	private SimulationFactory sf;
 	private Simulation simulation;
-	private JPanel gameStatusPanel;
+	private SimulationPanel gameStatusPanel;
 	
 	
 	public Model () {
@@ -63,8 +61,8 @@ public class Model implements ModelActions, Drawable {
 
 
 	@Override
-	public JPanel contextPanel() {
-		return gameStatusPanel;
+	public String contextDescription() {
+		return  gameStatusPanel.contextDescription();
 	}
 
 }

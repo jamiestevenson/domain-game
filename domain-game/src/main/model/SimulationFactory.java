@@ -74,6 +74,7 @@ public class SimulationFactory {
 		d.add(df.makeCounty(new Point(2,1)));
 		d.add(df.makeCounty(new Point(2,2)));
 		
+		bindNeighbours(d);
 		Simulation s = new Simulation(d);
 		return s;
 	}

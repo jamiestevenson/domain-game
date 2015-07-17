@@ -16,6 +16,11 @@ import javax.swing.JPanel;
 import main.presenter.Drawable;
 import main.presenter.DrawablesRegister;
 
+	/**
+	 * @author Jamie
+	 *
+	 * This panel is the 'map display' of hexes.
+	 */
 
 public class HexagonalPanel extends JPanel implements MouseListener {
 
@@ -79,8 +84,9 @@ public class HexagonalPanel extends JPanel implements MouseListener {
 	
 	
 	private void drawHexOutlines (Graphics2D g) {
+		
 		g.setColor(Color.BLACK); // outline
-		g.setStroke(new BasicStroke(2.0f));
+		g.setStroke(new BasicStroke(1.0f));
 		Polygon drawLast = null;
 		
 		for (Drawable h : hexes) {
@@ -104,9 +110,21 @@ public class HexagonalPanel extends JPanel implements MouseListener {
 	
 	private RenderingHints renderingHints () {
 		
-		return new RenderingHints(
+		RenderingHints hints =  new RenderingHints(
 	             RenderingHints.KEY_TEXT_ANTIALIASING,
 	             RenderingHints.VALUE_TEXT_ANTIALIAS_ON);
+		
+		hints.put(RenderingHints.KEY_RENDERING,
+				 RenderingHints.VALUE_RENDER_QUALITY);
+		
+		hints.put(RenderingHints.KEY_DITHERING,
+				 RenderingHints.VALUE_DITHER_ENABLE);
+		
+		
+		hints.put(RenderingHints.KEY_STROKE_CONTROL,
+				 RenderingHints.VALUE_STROKE_NORMALIZE);
+		
+		return hints;
 	}
 	
 	

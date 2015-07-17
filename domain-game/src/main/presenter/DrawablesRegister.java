@@ -4,8 +4,6 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Observable;
 
-import javax.swing.JPanel;
-
 import main.model.Model;
 
 	/**
@@ -48,6 +46,7 @@ public class DrawablesRegister extends Observable {
 		}
 
 
+		// Notify the register that something has been clicked on. 
 		public void setLastSelectedDrawable(Drawable d) {
 			
 			lastSelected = d;
@@ -56,12 +55,12 @@ public class DrawablesRegister extends Observable {
 		}
 		
 		
-		public JPanel lastSelectionSummary () {
+		public String lastSelectionSummary () {
 			
 			if (lastSelected == null) {
-				return model.contextPanel();
+				return model.contextDescription();
 			} else {
-				return lastSelected.contextPanel();
+				return lastSelected.contextDescription();
 			}
 			
 		}
