@@ -3,13 +3,11 @@ package main.presenter;
 import java.util.Observable;
 import java.util.Observer;
 
-import main.model.Simulation;
-
 public class SimulationPresenter implements Observer {
 	
 	private StringBuffer status;
 	
-	public SimulationPresenter (Simulation s) {
+	public SimulationPresenter (ObservableSimulation s) {
 		
 		s.addObserver(this);
 		status = new StringBuffer("Season: SPRING"); //hack!

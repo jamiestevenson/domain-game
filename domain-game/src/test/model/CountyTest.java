@@ -49,29 +49,6 @@ public class CountyTest {
 	}
 	
 	
-	@Test
-	public void armyPosition_Home_test() {
-		County c = new DomainFactory().makeCounty(new Point(0,0));
-		c.raiseArmy();
-		int a = c.friendlyUnitCount();
-		assertEquals(1, a);
-	}
-	
-	
-	@Test
-	public void armyPosition_Move_test() {
-		County c1 = new DomainFactory().makeCounty(new Point(0,0));
-		County c2 = new DomainFactory().makeCounty(new Point(1,0));
-		List<Domain> d = new ArrayList<Domain>();
-		d.add(c2);
-		c1.bindNeighbours(d);
-		c1.raiseArmy();
-		Army ofC1 = c1.army();
-		ofC1.moveEast();
-		int a = c1.friendlyUnitCount();
-		assertEquals(0, a);
-		int b = c2.unitCount();
-		assertEquals(1, b);
-	}
+
 	
 }

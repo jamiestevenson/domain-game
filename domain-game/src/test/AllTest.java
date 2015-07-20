@@ -3,6 +3,7 @@ package test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 
+import test.model.ArmyMovementTest;
 import test.model.CityTest;
 import test.model.CountyTest;
 import test.model.DomainFactoryTest;
@@ -22,6 +23,7 @@ import test.presenter.TILE_TYPETest;
 @RunWith(Suite.class)
 @Suite.SuiteClasses({
 		 ArmyTest.class,
+		 ArmyMovementTest.class,
 		 DomainTest.class,
 		 SimulationTest.class,
 		 SEASONTest.class,

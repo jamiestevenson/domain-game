@@ -3,11 +3,13 @@ package main.model;
 import java.util.Collection;
 import java.util.List;
 import java.util.Observable;
+import java.util.Observer;
 import java.util.stream.Collectors;
 
 import main.presenter.HexTile;
+import main.presenter.ObservableSimulation;
 
-public class Simulation extends Observable {
+public class Simulation extends Observable implements ObservableSimulation {
 	
 	// The current season of the simulation.
 	private SEASON season;
@@ -17,7 +19,7 @@ public class Simulation extends Observable {
 	public Simulation (List<Domain> domains) {
 		
 		this.season = SEASON.SPRING;
-		domains.forEach(d -> this.addObserver(d));
+		domains.forEach(d -> super.addObserver(d));
 		this.hexes = domains.stream().map(Domain::getHex).collect(Collectors.toSet());
 		
 	}
@@ -33,8 +35,8 @@ public class Simulation extends Observable {
 	public void advanceSeason () {
 		
 		season = SEASON.advance(season);
-		this.setChanged();
-		notifyObservers(season.toString());
+		super.setChanged();
+		super.notifyObservers(season.toString());
 		
 	}
 
@@ -43,6 +45,12 @@ public class Simulation extends Observable {
 
 		return hexes;
 		
+	}
+
+
+	@Override
+	public void addObserver(Observer o) {
+		super.addObserver(o);
 	}
 	
 }
