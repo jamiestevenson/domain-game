@@ -7,4 +7,4 @@ I make no claim on the ideas presented by TSOJCANTH at Lost Pages - this program
 
 I am currently working on getting the basic game mechanics working - this is sort of a toy project to try out more rigorous TDD than I normally do.
 
-Time permitting - I would like to see some AI development to simulate player actions.
+Time permitting - I would like to see some AI development to simulate player actions, and allow the GM to take advantage of unexpected emergent behavior by the domains.
