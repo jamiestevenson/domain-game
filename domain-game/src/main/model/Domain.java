@@ -11,6 +11,7 @@ import java.util.Set;
 
 import main.model.domain.Army;
 import main.model.domain.TRADEABLE;
+import static main.model.domain.TRADEABLE.*;
 import main.model.domain.Traversable;
 import main.presenter.Presentable;
 import main.presenter.HexTile;
@@ -60,9 +61,9 @@ public abstract class Domain implements Presentable, Traversable, Observer {
 		
 		prestige = 0;
 		fortification = 0;
-		actionsLeft = 0;
-		importsLeft = 0;
-		exportsLeft = 0;
+		actionsLeft = 1;
+		importsLeft = 1;
+		exportsLeft = 1;
 	}
 	
 	
@@ -73,8 +74,18 @@ public abstract class Domain implements Presentable, Traversable, Observer {
 	}
 	
 	
-	protected void addTradeable (TRADEABLE goodType) {
+	public void importGoods (TRADEABLE goodType) {
 		goodsStore.put(goodType, goodsStore.get(goodType)+1);
+	}
+	
+	
+	public boolean exportGoods (TRADEABLE goodType) {
+		int level = goodsStore.get(goodType);
+		if (level > 0) {
+			goodsStore.put(goodType, level-1);
+			return true;
+		}
+		return false;
 	}
 	
 	
@@ -100,6 +111,17 @@ public abstract class Domain implements Presentable, Traversable, Observer {
 	}
 	
 	
+	protected boolean actionLeft () {
+		return actionsLeft > 0;
+	}
+	
+	
+	protected void useAction() {
+		actionsLeft-=1;
+		
+	}
+	
+	
 	public int fortification() {
 		
 		return fortification;
@@ -107,12 +129,40 @@ public abstract class Domain implements Presentable, Traversable, Observer {
 	}
 	
 	
-	public void fortify() {
+	private boolean canFortify () {
 		
-		fortification++;
+		return actionLeft();
 		
 	}
 	
+	
+	private boolean canFortifyWithTradeGoods() {
+		
+		return canFortify() &&
+				(goodsStore.get(TRADE_GOODS) > 0);
+		
+	}
+	
+	
+	public void fortify() {
+		
+		if (canFortify()) {
+			useAction();
+			fortification+=1;
+		}
+		
+	}
+	
+	
+	public void fortifyWithTradeGoods() {
+		if (canFortifyWithTradeGoods()) {
+			useAction();
+			fortification+=2;
+			int newValue = goodsStore.get(TRADE_GOODS)-1;
+			goodsStore.put(TRADE_GOODS, newValue);
+		}
+		
+	}
 	
 	
 	@Override
@@ -336,5 +386,15 @@ public abstract class Domain implements Presentable, Traversable, Observer {
 		this.exportsLeft = 1;
 		
 	}
+
+
+	public int remainingActions() {
+		
+		return actionsLeft;
+		
+	}
+
+
+
 
 }

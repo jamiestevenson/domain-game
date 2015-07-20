@@ -3,7 +3,6 @@ package test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 
-import test.model.ArmyMovementTest;
 import test.model.CityTest;
 import test.model.CountyTest;
 import test.model.DomainFactoryTest;
@@ -12,6 +11,7 @@ import test.model.ModelTest;
 import test.model.SEASONTest;
 import test.model.SimulationFactoryTest;
 import test.model.SimulationTest;
+import test.model.combat.ArmyMovementTest;
 import test.model.combat.ArmyTest;
 import test.presenter.DrawablesRegisterTest;
 import test.presenter.HexTest;

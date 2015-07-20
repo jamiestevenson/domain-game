@@ -8,6 +8,7 @@ import main.presenter.TILE_TYPE;
 
 public class County extends Domain {
 
+	// This is an 'army belongs to' relationship - for placement, see Domain.
 	private Army army;
 	
 	public County(Point p, String name) {
@@ -18,19 +19,28 @@ public class County extends Domain {
 	}
 
 	@Override
-	public TILE_TYPE category() {
+	public TILE_TYPE category () {
 
 		return TILE_TYPE.COUNTY;
 		
 	}
+	
+	
+	private boolean canRaiseArmy () {
+		
+		return super.actionLeft() && army==null;
+				
+	}
+	
 
 	public boolean raiseArmy() {
 		
-		if (army != null) {
-			return false;
-		} else {
+		if (canRaiseArmy()) {
+			super.useAction();
 			createArmy();
 			return true;
+		} else {
+			return false;
 		}
 		
 	}
