@@ -379,7 +379,6 @@ public abstract class Domain implements Presentable, Traversable, Observer {
 	@Override
 	public void update(Observable o, Object arg) {
 		
-		// This is the 'turn' update - the arg will be a model.domain.SEASON
 		//SEASON s = (SEASON) arg;
 		this.actionsLeft = 1;
 		this.importsLeft = 1;

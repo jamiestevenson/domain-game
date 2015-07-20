@@ -10,7 +10,7 @@ public class SimulationPresenter implements Observer {
 	public SimulationPresenter (ObservableSimulation s) {
 		
 		s.addObserver(this);
-		status = new StringBuffer("Season: SPRING"); //hack!
+		status = new StringBuffer("Season: SPRING"); //FIXME - make this automatic
 		
 	}
 

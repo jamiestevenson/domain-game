@@ -27,4 +27,76 @@ public class MenuBarController {
 		
 	}
 
+
+	public ActionListener countyRaiseArmy_ActionListener() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+	public ActionListener countyRaiseLevy_ActionListener() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+	public ActionListener countyTrade_ActionListener() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+	public ActionListener countyHarvest_ActionListener() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+	public ActionListener countyFortify_ActionListener() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+	public ActionListener countyPrestige_ActionListener() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+	public ActionListener cityFair_ActionListener() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+	public ActionListener cityTrade_ActionListener() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+	public ActionListener cityRaiseLevy_ActionListener() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+	public ActionListener cityManufacture_ActionListener() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+	public ActionListener cityFortify_ActionListener() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+	public ActionListener cityPrestige_ActionListener() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

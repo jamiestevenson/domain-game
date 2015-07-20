@@ -1,2 +1,8 @@
 TODO:
 Add action economy with seasonal clock
+
+Issues - adding army - to do this properly, probably need to
+add in start and end of season handlers - which makes sense, because
+the whole game will have a TURN button.  In reality, only domains
+need to know about turns and the season.  domains, however are
+getting a bit big.

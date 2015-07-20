@@ -5,6 +5,7 @@ import java.awt.Point;
 import main.model.domain.Army;
 import main.model.domain.ArmyFactory;
 import main.presenter.TILE_TYPE;
+import static main.model.SEASON.*;
 
 public class County extends Domain {
 
@@ -59,5 +60,7 @@ public class County extends Domain {
 		return army;
 		
 	}
+
+
 
 }

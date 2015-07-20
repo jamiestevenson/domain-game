@@ -20,7 +20,7 @@ public class MenuBarControllerTest {
 	}
 	
 	@Test
-	public void newGamListener_test () {
+	public void newGameListener_test () {
 		
 		class mockModelActions implements ModelActions {
 			public boolean triggered = false;
