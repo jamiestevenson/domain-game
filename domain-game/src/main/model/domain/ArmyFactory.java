@@ -1,5 +1,7 @@
 package main.model.domain;
 
+import main.model.County;
+
 
 
 
@@ -9,8 +11,8 @@ public class ArmyFactory {
 		
 	}
 
-	public static Army army(Traversable county) {
-		return new CountyArmy (county);
+	public static Army army(County c) {
+		return new CountyArmy (c, c);
 	}
 	
 }

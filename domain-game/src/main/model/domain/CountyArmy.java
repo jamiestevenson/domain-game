@@ -1,5 +1,11 @@
 package main.model.domain;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
+
+import main.model.SEASON;
+
 
 
 	/**
@@ -10,16 +16,20 @@ package main.model.domain;
 
 public class CountyArmy implements Army {
 
-	private Traversable home;
-	private TRADEABLE arms;
+	private SupplyTrain supplySource;
+	private Optional<TRADEABLE> arms;
+	private final Traversable home;
 	private Traversable myLocation;
+	private Optional<TRADEABLE> rations;
 	
 	
-	public CountyArmy (Traversable home) {
+	public CountyArmy (SupplyTrain supply, Traversable home) {
 		
+		this.supplySource = supply;
+		this.arms = Optional.empty();
 		this.home = home;
-		arms = null;
-		myLocation = home;
+		this.myLocation = home;
+		this.rations = Optional.empty();
 		
 	}
 	
@@ -28,7 +38,7 @@ public class CountyArmy implements Army {
 		
 		if (newArms == TRADEABLE.ARMS) {
 			
-			this.arms = newArms;
+			this.arms = Optional.of(newArms);
 			
 		} else {
 			
@@ -41,12 +51,11 @@ public class CountyArmy implements Army {
 	
 	public boolean canEquip (TRADEABLE newArms) {
 		
-		return (this.arms == null && newArms == TRADEABLE.ARMS);
+		return (!arms.isPresent() && newArms == TRADEABLE.ARMS);
 		
 	}
 
 	
-
 	@Override
 	public boolean canTraverse (Traversable destination) {
 
@@ -113,12 +122,47 @@ public class CountyArmy implements Army {
 	
 	@Override
 	public void moveNorthWest() {
-		
 		myLocation.moveNorthWest(this);
-		
 	}
 
+
+	@Override
+	public void update(SEASON s) {
+		if (s == SEASON.WINTER) {
+			supplySource.supplyYourArmy(this);
+			standOrDisband();
+		}
+	}
 	
 
+	private void standOrDisband() {
+		if (!rations.isPresent()) {
+			disband();
+		} else {
+			rations = Optional.empty();
+		}
+	}
+
+
+	private void disband() {
+		if (myLocation.equals(home)) {
+			supplySource.disbandAtHome(this);
+		} else {
+			supplySource.disbandRemotely(this);
+		}
+	}
+	
+	
+	@Override
+	public List<TRADEABLE> strip() {
+		List<TRADEABLE> reply = new ArrayList<>();
+		if (arms.isPresent()) {
+			reply.add(arms.get());
+		}
+		if (rations.isPresent()) {
+			reply.add(rations.get());
+		}
+		return reply;
+	}
 	
 }
