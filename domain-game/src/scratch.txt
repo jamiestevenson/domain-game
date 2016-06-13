@@ -6,3 +6,14 @@ add in start and end of season handlers - which makes sense, because
 the whole game will have a TURN button.  In reality, only domains
 need to know about turns and the season.  domains, however are
 getting a bit big.
+
+JavaFX - this may be a better option going forward - it would be nice
+if I just wrap model components in menus - rather than building a
+separate system of UX to re-attach.
+
+REDESIGN: Need to think about more layered architecture for separating
+army movement stuff out of domain as it is getting too fat.
+
+Also need to consider where army sustainability rules are stored, 
+probably in the armies themselves - in which case there will need to be
+a way of cleaning up the equipment and removing itself from the game.
